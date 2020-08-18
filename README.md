@@ -5,6 +5,9 @@ application up and running.
 
 Things you may want to cover:
 
+Historias de usuario
+https://trello.com/b/9OWmjqSI/eagleye-attendance
+
 * Ruby version
 
 * System dependencies
