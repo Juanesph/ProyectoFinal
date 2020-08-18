@@ -1,2 +1,37 @@
 <h1>Employees#new</h1>
 <p>Find me in app/views/employees/new.html.erb</p>
+<%= form_with scope: :employee, local: true do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :rut %><br>
+    <%= form.text_area :rut %>
+  </p>
+
+  <p>
+    <%= form.label :position %><br>
+    <%= form.text_area :position %>
+  </p>
+
+  <p>
+    <%= form.label :birthday %><br>
+    <%= form.text_area :birthday %>
+  </p>
+
+  <p>
+    <%= form.label :phone %><br>
+    <%= form.text_area :phone %>
+  </p>
+
+  <p>
+    <%= form.label :start_date %><br>
+    <%= form.text_area :start_date %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
