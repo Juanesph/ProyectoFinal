@@ -1,0 +1,21 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  rut: MyString
+  position: MyString
+  birthday: 2020-08-18
+  phone: 1
+  start_date: 2020-08-18
+  end_date: 2020-08-18
+  company: one
+
+two:
+  name: MyString
+  rut: MyString
+  position: MyString
+  birthday: 2020-08-18
+  phone: 1
+  start_date: 2020-08-18
+  end_date: 2020-08-18
+  company: two
