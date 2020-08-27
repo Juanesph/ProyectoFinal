@@ -1,6 +1,19 @@
-<h1>Employees#new</h1>
-<p>Find me in app/views/employees/new.html.erb</p>
-<%= form_with scope: :employee, local: true do |form| %>
+<h1>Nuevo empleado</h1>
+
+<%= form_with model: [@company, @employee],  url: company_employees_path(@company), local: true do |form| %>
+
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee.errors.count, "error") %> No se puede crear el usuario:</h2>
+
+      <ul>
+      <% @employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
   <p>
     <%= form.label :name %><br>
     <%= form.text_field :name %>
@@ -18,17 +31,17 @@
 
   <p>
     <%= form.label :birthday %><br>
-    <%= form.text_area :birthday %>
+    <%= form.date_field :birthday %>
   </p>
 
   <p>
     <%= form.label :phone %><br>
-    <%= form.text_area :phone %>
+    <%= form.phone_field :phone %>
   </p>
 
   <p>
     <%= form.label :start_date %><br>
-    <%= form.text_area :start_date %>
+    <%= form.date_field :start_date %>
   </p>
  
   <p>

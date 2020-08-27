@@ -21,8 +21,10 @@ Rails.application.routes.draw do
   # get 'companies/update'
   # get 'companies/destroy'
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
-  resources :companies
-  resources :employees
+  resources :companies do
+    resources :employees, shallow: true
+  end
+
   resources :attendances
 
   root 'companies#index'
