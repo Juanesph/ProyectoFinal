@@ -1,2 +1,50 @@
-<h1>Employees#edit</h1>
-<p>Find me in app/views/employees/edit.html.erb</p>
+<h1>Editar empleado</h1>
+
+<%= form_with model: [@employee],  url: employee_path(@employee), local: true do |form| %>
+
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@employee.errors.count, "error") %> No se puede crear el usuario:</h2>
+
+      <ul>
+      <% @employee.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :rut %><br>
+    <%= form.text_area :rut %>
+  </p>
+
+  <p>
+    <%= form.label :position %><br>
+    <%= form.text_area :position %>
+  </p>
+
+  <p>
+    <%= form.label :birthday %><br>
+    <%= form.date_field :birthday %>
+  </p>
+
+  <p>
+    <%= form.label :phone %><br>
+    <%= form.phone_field :phone %>
+  </p>
+
+  <p>
+    <%= form.label :start_date %><br>
+    <%= form.date_field :start_date %>
+  </p>
+ 
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %>
