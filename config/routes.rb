@@ -25,7 +25,9 @@ Rails.application.routes.draw do
     resources :employees, shallow: true
   end
 
-  resources :attendances
+  resources :attendances do
+    collection { post :import}
+  end
 
   root 'companies#index'
 end
