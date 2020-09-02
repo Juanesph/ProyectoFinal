@@ -1,12 +1,13 @@
-<h1>Asistencia</h1>
+<h1 class="my-5">Asistencia</h1>
 
-<table>
-  <tr>
-    <th>Rut</th>
-    <th>Month</th>
-    <th>Action</th>
-  </tr>
- 
+<table class="table table-bordered">
+   <thead> 
+    <tr>
+      <th>Rut</th>
+      <th>Month</th>
+      <th>Action</th>
+    </tr>
+   </thead>
   <% @attendances.each do |attendance| %>
     <tr>
       <td><%= attendance.rut %></td>

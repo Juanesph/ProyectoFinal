@@ -1,0 +1,19 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <%= link_to "Empresa", root_path, class: "nav-item nav-link" %>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <%= link_to "Company", companies_path, class: "nav-item nav-link" %>
+      
+      <%= link_to "Attendance", attendances_path, class: "nav-item nav-link" %>
+      <% if current_user %>
+        <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "nav-item nav-link" %>
+      <% else %>
+        <%= link_to "Log in", new_user_session_path, class: "nav-item nav-link" %>
+      <% end %> 
+      </li>
+    </ul>
+  </div>
+</nav>

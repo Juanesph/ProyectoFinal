@@ -1,4 +1,5 @@
 class AttendancesController < ApplicationController
+  
   def index
     @attendances = Attendance.all
     respond_to do |format|
