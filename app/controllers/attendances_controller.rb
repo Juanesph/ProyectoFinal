@@ -1,5 +1,6 @@
 class AttendancesController < ApplicationController
-  
+  before_action :authenticate_user!
+
   def index
     @attendances = Attendance.all
     respond_to do |format|
