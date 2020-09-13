@@ -1,7 +1,7 @@
 <h1>Empleados</h1>
 
 
-<table>
+<table class="table">
   <tr>
     <th>Name</th>
     <th>Rut</th>
@@ -22,7 +22,7 @@
       <td><%= employee.start_date %></td>
       <td><%= link_to 'Show', employee_path(employee) %></td>
       <td><%= link_to 'Edit', edit_employee_path(employee) %></td>
-      <td><%= link_to 'Delete', edit_employee_path(employee) %></td>
+      <%# <td><%= link_to 'Delete', edit_employee_path(employee) %>
       <td><%= link_to 'Delete', employee, method: :delete, data: { confirm: 'Are you sure?' } %></td>
     </tr>
   <% end %>

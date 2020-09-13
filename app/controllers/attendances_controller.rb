@@ -1,5 +1,6 @@
 class AttendancesController < ApplicationController
   before_action :authenticate_user!
+  before_action :set_employees, only: [:show]
 
   def index
     @attendances = Attendance.all
@@ -15,6 +16,14 @@ class AttendancesController < ApplicationController
   end
 
   def show
+    @attendances = Attendance.all
+    # worked_hours = " "
+    
+    # @attendances.each do |a|
+    #   a.rut
+    # end
+    
+
   end
 
   def new
@@ -32,4 +41,16 @@ class AttendancesController < ApplicationController
 
   def destroy
   end
+
+  private
+
+  def attendance_params
+    params.require(:attendance).permit(:month, :rut, :action, :employee_id, employees_attributes: [:id, :name])
+  end
+
+  def set_employees
+    @employees = Employee.all
+  end
+
 end
+
