@@ -1,4 +1,5 @@
 class EmployeesController < ApplicationController
+  before_action :authenticate_user!
   before_action :set_company, only: [:create, :new, :index]
   def index
     @employees = Employee.all

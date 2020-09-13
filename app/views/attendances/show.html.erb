@@ -1,2 +1,31 @@
 <h1>Attendances#show</h1>
 <p>Find me in app/views/attendances/show.html.erb</p>
+<table class="table">
+  <tr>
+    <th>Rut</th>
+    <th>Employee id</th>
+    <th>Name</th>
+  </tr>
+ 
+  
+  <% @attendances.each do |row| %>
+    <tr>
+      <td><%= row.rut %></td>
+      <td><%= row.employee_id %></td>
+      <% employee = Employee.find_by(rut: row["rut"])%>
+        <% if employee.present? %>
+          <td><%= employee.name %></td>
+        <% else %>
+          <td><%= " " %>
+        <% end %>    
+      </tr>
+  <% end %>
+
+  <h1>RESUMEN</h1>
+
+  <% @employee.each do |row| %>
+    
+
+</table>
+
+
