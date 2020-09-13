@@ -1,11 +1,24 @@
-<h1>Employees#show</h1>
-<p>Find me in app/views/employees/show.html.erb</p>
-<p>
-  <strong>Nombre:</strong>
-  <%= @employee.name %>
-</p>
- 
-<p>
-  <strong>Rut:</strong>
-  <%= @employee.rut %>
-</p>
+<h1 class="my-5">Asistencia</h1>
+
+<table class="table table-bordered">
+   <thead> 
+    <tr>
+      <th>Rut</th>
+      <th>Month</th>
+      <th>Position</th>
+      <th>Phone</th>
+      <th>Birthday</th>
+      <th>Start date</th>
+    </tr>
+   </thead>
+  
+    <tr>
+      <td><%= @employee.rut %></td>
+      <td><%= @employee.name %></td>
+      <td><%= @employee.position   %></td>
+      <td><%= @employee.phone %></td>
+      <td><%= @employee.birthday %></td>
+      <td><%= @employee.start_date %></td>
+    </tr>
+  
+</table>
