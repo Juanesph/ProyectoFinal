@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_10_192927) do
+ActiveRecord::Schema.define(version: 2020_09_15_031659) do
 
   create_table "attendances", force: :cascade do |t|
     t.datetime "month"
@@ -19,6 +19,7 @@ ActiveRecord::Schema.define(version: 2020_09_10_192927) do
     t.integer "employee_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "AttendanceDate"
     t.index ["employee_id"], name: "index_attendances_on_employee_id"
   end
 

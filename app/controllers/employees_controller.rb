@@ -8,6 +8,9 @@ class EmployeesController < ApplicationController
 
   def show
     @employee = Employee.find(params[:id])
+    @start_date = Date.current.prev_month.beginning_of_month
+    @end_date = Date.current.prev_month.end_of_month
+    @newatt = @employee.attendances.where(AttendanceDate: @start_date..@end_date)
   end
 
   def new
@@ -48,6 +51,8 @@ class EmployeesController < ApplicationController
       format.html { redirect_to [@employee.company, @employees], notice: 'Strain was successfully destroyed.' }
     end
   end
+
+  
 
   private
     def employee_params
