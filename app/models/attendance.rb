@@ -1,5 +1,5 @@
 class Attendance < ApplicationRecord
-  belongs_to :employee, optional: true
+  belongs_to :employee
   
 
 
@@ -8,9 +8,9 @@ class Attendance < ApplicationRecord
       month = DateTime.strptime(row["month"].gsub('/', '-'), '%d-%m-%y %H:%M')
       employee = Employee.find_by(rut: row["rut"])
       if employee.present?
-        Attendance.create!(rut: row["rut"], month: month, action: row["action"], employee_id: employee.id)
+        Attendance.create!(rut: row["rut"], month: month, action: row["action"], employee_id: employee.id, AttendanceDate: month.to_date)
       else
-        Attendance.create!(rut: row["rut"], month: month, action: row["action"], employee_id: "nil")
+        Attendance.create!(rut: row["rut"], month: month, action: row["action"], employee_id: "nil", AttendanceDate: month.to_date)
       end
     end
   end

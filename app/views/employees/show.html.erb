@@ -4,11 +4,12 @@
    <thead> 
     <tr>
       <th>Rut</th>
-      <th>Month</th>
+      <th>Nombre</th>
       <th>Position</th>
       <th>Phone</th>
       <th>Birthday</th>
       <th>Start date</th>
+      
     </tr>
    </thead>
   
@@ -18,7 +19,35 @@
       <td><%= @employee.position   %></td>
       <td><%= @employee.phone %></td>
       <td><%= @employee.birthday %></td>
-      <td><%= @employee.start_date %></td>
-    </tr>
-  
+      <td><%= @employee.start_date %></td>      
+    </tr>  
 </table>
+
+<%= individual_attendance %>
+<table>
+  <thead>
+    <tr>
+      <th>Entrada</th>
+      <th>Colacio</th>
+      <th>Regreso colación</th>
+      <th>Salida</th>
+    </tr>
+  </thead>
+ 
+  <tbody>
+    <% @newatt.each do |row| %>
+      <tr>
+        <% if row.action == 0 %>
+          <td><%= "entrada #{row.month}" %></td>
+        <% elsif row.action == 1 %>
+          <td><%= "salida cola #{row.month}" %></td>
+        <% elsif row.action == 2 %>
+          <td><%= "vuelve cola #{row.month}" %></td>
+        <% elsif row.action == 3 %>
+          <td><%= "salida #{row.month}" %></td>  
+        <% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+

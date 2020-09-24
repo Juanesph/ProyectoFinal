@@ -22,9 +22,20 @@ class AttendancesController < ApplicationController
     # @attendances.each do |a|
     #   a.rut
     # end
-    
-
   end
+
+  def individual_attendance
+    @employee = Employee.first
+    @date = Date.current.prev_month.beginning_of_month
+    @newatt = @employee.attendances.where(AttendanceDate: @date).find_each do |att|
+      @first_entry = attendance.action = 0 
+      @first_exit = attendance.action = 1
+      @second_entry = attendance.atcion = 2
+	    @second_entry = attendance.action =3
+    end
+    
+  end
+  helper_method :individual_attendance
 
   def new
   end
@@ -45,7 +56,7 @@ class AttendancesController < ApplicationController
   private
 
   def attendance_params
-    params.require(:attendance).permit(:month, :rut, :action, :employee_id, employees_attributes: [:id, :name])
+    params.require(:attendance).permit(:month, :rut, :action, :employee_id, :AttendanceDate, employees_attributes: [:id, :name])
   end
 
   def set_employees
